@@ -1,0 +1,15 @@
+extends layout
+
+block scripts
+    script(src='/javascripts/ingredient.js')
+
+block content
+  h1= title
+  div#main
+      form(method='post',action='/ingredient/new', id="ingredientform")
+        | Ingredient Name: 
+        input(name='name',id='nameinput')
+        |   Cost: 
+        input(name='cost',id='costinput')
+        button
+            | Done

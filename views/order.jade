@@ -1,0 +1,24 @@
+extends layout
+
+block scripts
+    script(src='/javascripts/order.js')
+
+block content
+  h1= title
+  div#main
+      
+        each order, x in orders
+          div(class="#{order._id}")
+            | Name: #{order.name}
+            br
+            ul(id="ingredientlist")
+            each burger_ingr, i in order.ingredients
+              each ingr in ingredients
+                if String(ingr._id) == String(burger_ingr)
+                  li
+                    div=ingr.name
+            form(method='post',action='/order', id=order._id, class="orderform")
+              button
+                | Complete Order
+            br
+            br
