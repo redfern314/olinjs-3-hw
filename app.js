@@ -15,8 +15,8 @@ mongoose.connect(process.env.MONGOLAB_URI||'localhost');
 //mongoose.connect(process.env.MONGOLAB_URI||'localhost');
 
 var models = require("./models/models");
-var ingredient = require("./routes/ingredient");
-var neworder = require("./routes/neworder");
+// var ingredient = require("./routes/ingredient");
+// var neworder = require("./routes/neworder");
 var order = require("./routes/order");
 
 var app = express();
@@ -37,13 +37,13 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/', routes.index);
-app.get('/ingredient/new', ingredient.new);
-app.post('/ingredient/new', ingredient.new_post);
-app.get('/order/new', neworder.new);
-app.post('/order/new', neworder.new_post);
-app.get('/order', order.new);
-app.post('/order', order.new_post);
+app.get('/', order.home);
+// app.get('/ingredient/new', ingredient.new);
+// app.post('/ingredient/new', ingredient.new_post);
+// app.get('/order/new', neworder.new);
+// app.post('/order/new', neworder.new_post);
+// app.get('/order', order.home);
+// app.post('/order', order.home_post);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

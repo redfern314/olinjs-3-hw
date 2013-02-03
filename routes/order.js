@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var Ingredient = mongoose.model('Ingredient');
 var Order = mongoose.model('Order');
 
-exports.new = function(req, res){
+exports.home = function(req, res){
   console.log("loaded");
   Order.find({}, function(err, orders) {
         if (err) console.log(err); // ...
@@ -14,7 +14,7 @@ exports.new = function(req, res){
     })
 };
 
-exports.new_post = function(req, res){
+exports.home_post = function(req, res){
   console.log("posted");
   Order.remove({_id: req.body._id}, function(err) {
             if (err) console.log(err); // ...
