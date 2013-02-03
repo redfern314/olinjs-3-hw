@@ -14,10 +14,10 @@ var mongoose = require('mongoose');
 mongoose.connect(process.env.MONGOLAB_URI||'localhost');
 //mongoose.connect(process.env.MONGOLAB_URI||'localhost');
 
-var models = require("./models/models");
+// var models = require("./models/models");
 // var ingredient = require("./routes/ingredient");
 // var neworder = require("./routes/neworder");
-var order = require("./routes/order");
+// var order = require("./routes/order");
 
 var app = express();
 
@@ -37,7 +37,10 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/', order.home);
+app.get('/', function(req, res){
+  res.render('index', { title: 'Express' });
+});
+// app.get('/', order.home);
 // app.get('/ingredient/new', ingredient.new);
 // app.post('/ingredient/new', ingredient.new_post);
 // app.get('/order/new', neworder.new);
