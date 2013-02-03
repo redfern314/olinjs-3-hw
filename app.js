@@ -12,6 +12,7 @@ var express = require('express')
 
 var mongoose = require('mongoose');
 mongoose.connect(process.env.MONGOLAB_URI||'localhost');
+//mongoose.connect(process.env.MONGOLAB_URI||'localhost');
 
 var models = require("./models/models");
 var ingredient = require("./routes/ingredient");
